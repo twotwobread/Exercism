@@ -1,0 +1,45 @@
+name: Stub tests
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+
+jobs:
+  test:
+    name: Go ${{ matrix.go-version }} - ${{ matrix.os }}/${{ matrix.test-arch }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        go-version: [1.21.x]
+        os: [ubuntu-22.04, windows-2022, macOS-latest]
+        test-arch: [amd64]
+        race: ["-race"]
+
+        include:
+          - go-version: 1.21.x
+            test-arch: "386"
+            os: ubuntu-22.04
+            race: ""
+          - go-version: 1.21.x
+            test-arch: "386"
+            os: windows-2022
+            race: ""
+
+    steps:
+      - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
+
+      - uses: actions/setup-go@cdcb36043654635271a94b9a6d1392de5bb323a7
+        with:
+          go-version: ${{ matrix.go-version }}
+
+      - name: Run tests on stubs
+        shell: bash
+        env:
+          GOARCH: ${{ matrix.test-arch }}
+        run: |
+          ./bin/run-tests test-stubs
