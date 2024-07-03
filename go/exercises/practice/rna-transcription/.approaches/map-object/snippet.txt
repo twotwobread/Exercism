@@ -1,7 +1,0 @@
-func ToRNA(dna string) string {
-	rna := make([]byte, len(dna))
-	for i, c := range dna {
-		rna[i] = translate[c]
-	}
-	return string(rna)
-}

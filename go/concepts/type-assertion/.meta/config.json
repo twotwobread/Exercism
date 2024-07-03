@@ -1,5 +1,0 @@
-{
-  "blurb": "Use type assertions to access an interface value's underlying concrete value.",
-  "authors": ["jmrunkle"],
-  "contributors": []
-}

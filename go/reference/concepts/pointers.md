@@ -1,3 +1,0 @@
-# Pointers
-
-There are some specialties about pointers in Go...

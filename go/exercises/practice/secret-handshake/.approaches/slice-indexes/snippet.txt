@@ -1,7 +1,0 @@
-output := []string{}
-for ; action != end; action += actionIncr {
-  if (code & (1 << action)) != 0 {
-    output = append(output, signs[action])
-  }
-}
-return output

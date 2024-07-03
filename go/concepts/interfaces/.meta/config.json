@@ -1,5 +1,0 @@
-{
-  "blurb": "Interfaces define method sets and are implemented implicitily by all types that have those methods.",
-  "authors": ["jmrunkle", "junedev"],
-  "contributors": []
-}
