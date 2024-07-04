@@ -1,3 +1,7 @@
-**/venv
 **/env.toml
+# resource
 **/*.txt
+**/*.tar
+**/*.tar.gz
+**/*.whl
+
